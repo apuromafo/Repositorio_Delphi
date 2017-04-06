@@ -47,7 +47,7 @@ type
     { Public declarations }
  contador,estilo,estilo1,estilo2,estilo3,estilo4,indeciso: Integer ;
     respuesta:String;
-     Tabla: TStringList;
+     Tabla,Tabla2: TStringList;
 //estilo 1:
   end;
 
@@ -71,12 +71,15 @@ begin
   for I := 1 to length (S) do
     Result:= Result+IntToHex(ord(S[i]),2);
 end;
-//*
-//*var
+
+
 begin
 Application.Terminate;
 Halt;
 end;
+
+
+
 procedure TForm1.CheckBox1Click(Sender: TObject);
 begin
  if CheckBox1.Checked = True then begin
@@ -132,6 +135,27 @@ respuesta:='';
 end;
 end;
 procedure TForm1.Button4Click(Sender: TObject);
+function desencriptar(aStr: Ansistring; aKey: Integer): String;
+begin
+   Result:='';
+   RandSeed:=aKey;
+   for aKey:=1 to Length(aStr) do
+       Result:=Result+Chr(Byte(aStr[aKey]) xor (152));
+end;
+   {
+function String2Hex(const Buffer: Ansistring): string;
+begin
+  SetLength(result, 2*Length(Buffer));
+  BinToHex(@Buffer[1], PWideChar(@result[1]), Length(Buffer));
+end;
+}
+function HexToString(H: String): String;
+var I : Integer;
+begin
+  Result:= '';
+  for I := 1 to length (H) div 2 do
+    Result:= Result+Char(StrToInt('$'+Copy(H,(I-1)*2+1,2)));
+end;
 var
 i :integer;
 ResStream: TResourceStream;
@@ -142,9 +166,12 @@ Tabla.Create;
  ResStream :=TResourceStream.Create(hInstance, 'PREGUNTA', RT_RCDATA);
  Tabla.LoadFromStream(ResStream,TEncoding.ASCII);
 //Tabla.LoadFromStream( 'Preguntas.txt');
+Tabla2 := TStringList.Create;
+Tabla2.Clear;
+for i := 0 to tabla.Count-1 do
+Tabla2.add(desencriptar(HexToString(Tabla.Strings[i]),15)) ;
+Tabla2.add('P80');
 
-
-Tabla.add('P80');
 Case RadioGroup1.ItemIndex of
     0:
     begin
@@ -161,9 +188,9 @@ inc(estilo,1);
   //showmessage('radiobutton2 is selected');
   end;
   End;
-   for i := 0 to Tabla.Count-1 do
+   for i := 0 to Tabla2.Count-1 do
    begin
- label2.Caption:=Tabla.Strings[contador];//+'contador>'+inttostr(contador);
+ label2.Caption:=Tabla2.Strings[contador];//+'contador>'+inttostr(contador);
    end;
 case contador of
 80:
@@ -175,14 +202,15 @@ If Respuesta='b' then dec(contador,1);
 end;
 81:
 begin
-Tabla.Free;
+Tabla2.Free;
 Label3.Caption:='Bien Hecho, he guardado tu resultado en un txt';
-Tabla := TStringList.Create;
-Tabla.add('Resultado de  _'+Inttostr(contador)+'_ Preguntas  Activo->'+Inttostr(estilo1)+' '+'Reflexivo->'+Inttostr(estilo2)+' '+'Teorico->'+Inttostr(estilo3)+' '+'Pragmático->'+Inttostr(estilo4)+'');
+Tabla2 := TStringList.Create;
+Tabla2.Clear;
+Tabla2.add('Resultado de  _'+Inttostr(contador)+'_ Preguntas  Activo->'+Inttostr(estilo1)+' '+'Reflexivo->'+Inttostr(estilo2)+' '+'Teorico->'+Inttostr(estilo3)+' '+'Pragmático->'+Inttostr(estilo4)+'');
 //Tabla.SaveToFile( ExtractFilePath( Application.ExeName ) + 'Resultado.txt' );
-Tabla.SaveToFile('Resultado.txt' );
-label2.Caption:=Tabla.Strings[0];
-Tabla.Free;
+Tabla2.SaveToFile('Resultado.txt' );
+label2.Caption:=Tabla2.Strings[0];
+Tabla2.Free;
 Button3.Visible:=False;
 Button4.Visible:=False;
 Button3.Enabled:=False;
