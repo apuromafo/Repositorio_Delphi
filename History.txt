@@ -4,3 +4,5 @@ v1.1
 Agregado theme obsidium y un theme pack en embarcadero
 v1.2
 Se cargan las preguntas desde Memoria
+v1.3
+Desencripta de un Preguntas.txt previamente encriptado (simple xor)
