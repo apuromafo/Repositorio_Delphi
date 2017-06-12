@@ -17,9 +17,10 @@ Version x86 1.3 2017-06-12
 [^] Cuestionario que permite desarrollar el cuestionario de Chelsea que trabaja sobre estilos de Aprendizaje
 
 ===================================
-Version x86 1.2 2017-05-01
+Version x86 y x64 1.2 2017-05-01
 ===================================
 [+] Se cargan las preguntas desde Memoria
+[-] Removido Musica en version de 64 Bytes
 
 ===================================
 Version x86 1.1 2017-04-01
