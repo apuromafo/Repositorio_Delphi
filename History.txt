@@ -1,0 +1,32 @@
+=============*{ History }*=============
+Programa : Cuestionario Chelsea 
+Web : https://github.com/apuromafo/Delphi-Cuestionario-Chelsea 
+===================================
+Leyenda:
+[+] Agregado / Nuevo
+[-] Removido
+[*] Cambiado
+[%] Arreglado(bugs)
+[^] Actualizacionesy / o Información 
+
+===================================
+Version x86 1.3 2017-06-12
+===================================
+[*] Desencripta de un Preguntas.txt previamente encriptado (simple xor)
+[*] se cambian versiones x86 y x64
+[^] Cuestionario que permite desarrollar el cuestionario de Chelsea que trabaja sobre estilos de Aprendizaje
+
+===================================
+Version x86 1.2 2017-05-01
+===================================
+[+] Se cargan las preguntas desde Memoria
+
+===================================
+Version x86 1.1 2017-04-01
+===================================
+[+] Agregado theme obsidium y un theme pack en embarcadero
+
+===================================
+Version x86 1.0 2017-03-01
+===================================
+[+] Creado el cuestionario
