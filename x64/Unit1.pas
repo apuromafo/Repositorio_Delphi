@@ -12,7 +12,7 @@ interface
 // 2.    Interface. Hace constar que lo que le sigue a esa palabra es la interfaz del formulario.
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, jpeg, ExtCtrls;
+  Dialogs, StdCtrls, jpeg, ExtCtrls, Vcl.Imaging.pngimage;
 
 // 3.    Uses. En esta se especifican los distintos módulos que cargará el programa
 // y que se incluirán en el ejecutable una vez compilado para que éste tenga una
@@ -53,6 +53,32 @@ type
     // estilo 1:
   end;
 
+Resourcestring
+  str1 = 'Este Programa es un Simple Cuestionario';
+  str2 = 'Continuar';
+  str3 = 'P1:Tengo fama de decir lo que pienso claramente y sin rodeos ';
+  str4 = 'Instrucciones: Marca los enunciados que describen tu comportamiento';
+  str5 = 'PREGUNTA'; // nombre recurso
+  str6 = 'Selecciona una opción, luego ';
+  str7 = 'a';
+  str8 = 'b';
+  str9 = 'c';
+  str10 = 'Bien Hecho, he guardado tu resultado en un txt';
+  str11 = 'Resultado de  _';
+  str12 = '_ Preguntas  Activo->';
+  str13 = 'Reflexivo->';
+  str14 = 'Teorico->';
+  str15 = 'Pragmático->';
+  str16 = '17-01-2018 Apuromafo '; // label
+  str17 = 'Cuestionario Chelsea para Estilos de Aprendizaje v 1.3 x64';
+  // form title
+  str18 = 'Cuestionario Chelsea para Estilos de Aprendizaje'; // label
+  str19 = 'Bienvenido , pulsa Start para comenzar: '; // label
+  str20 = 'Start'; // caption boton 3
+  str21 = 'Siguiente>'; // caption boton 4
+  str22 = 'About'; // caption Boton 2
+  str23 = 'Exit';
+
 var
   Form1: TForm1;
 
@@ -82,6 +108,14 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   BorderIcons := BorderIcons - [biSystemMenu, biMinimize, biMaximize, biHelp];
+  Label1.Caption := str16;
+  self.Caption := str17;
+  Label2.Caption := str18;
+  Label3.Caption := str19;
+  Button3.Caption := str20;
+  Button4.Caption := str21;
+  Button2.Caption := str22;
+  Button1.Caption := str23;
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
@@ -91,8 +125,7 @@ var
 
 begin
   // f := Dialogs.CreateMessageDialog('este keygen genera claves para fines educacionales', dialogs.mtInformation, [dialogs.mbOk]);
-  f := Dialogs.CreateMessageDialog('Este Programa es un Simple Cuestionario',
-    Dialogs.mtInformation, [Dialogs.mbOk]);
+  f := Dialogs.CreateMessageDialog(str1, Dialogs.mtInformation, [Dialogs.mbOk]);
   f.Color := clBlue;
   f.Font.Color := clLime;
   if f.ShowModal = mrOk then
@@ -110,22 +143,20 @@ begin
   Button3.Enabled := False;
   Button4.Visible := True;
   Button4.Enabled := True;
-  Button4.Caption := 'Continuar';
+  Button4.Caption := str2;
   // para formato, al comenzar solo muestra el caption..nada que validar de antes
   if estilo = 0 then
   begin
     RadioGroup1.Visible := True;
     Tabla := TStringList.Create;
-    Label2.Caption :=
-      'P1:Tengo fama de decir lo que pienso claramente y sin rodeos ';
-    Label3.Caption :=
-      'Instrucciones: Marca los enunciados que describen tu comportamiento';
-    RadioGroup1.Caption := 'Selecciona una opción, luego ' + Button4.Caption;
-    If respuesta = 'a' then
+    Label2.Caption := str3;
+    Label3.Caption := str4;
+    RadioGroup1.Caption := str6 + Button4.Caption;
+    If respuesta = str7 then
       inc(estilo4, 1); // pregunta 1 apunta al estilo4
-    If respuesta = 'b' then
+    If respuesta = str8 then
       inc(indeciso, 1);
-    If respuesta = 'c' then
+    If respuesta = str9 then
       inc(indeciso, 1);
     respuesta := '';
 
@@ -163,7 +194,7 @@ var
 begin
   Tabla.Create;
   // Tabla.LoadFromFile( ExtractFilePath( Application.ExeName ) + 'preguntas.txt' );
-  ResStream := TResourceStream.Create(hInstance, 'PREGUNTA', RT_RCDATA);
+  ResStream := TResourceStream.Create(hInstance, str5, RT_RCDATA);
   Tabla.LoadFromStream(ResStream, TEncoding.ASCII);
   // Tabla.LoadFromStream( 'Preguntas.txt');
   Tabla2 := TStringList.Create;
@@ -176,13 +207,13 @@ begin
     0:
       begin
         // showmessage('radiobutton1 is selected');
-        respuesta := 'a';
+        respuesta := str7;
         inc(contador, 1);
         inc(estilo, 1);
       end;
     1:
       begin
-        respuesta := 'b';
+        respuesta := str8;
         inc(contador, 1);
         inc(estilo, 1);
         // showmessage('radiobutton2 is selected');
@@ -199,21 +230,20 @@ begin
         // Label2.Caption:='P81: Dime Si gustó el Cuestionario '     ;
         // i:=79;
         I := 79;
-        If respuesta = 'b' then
+        If respuesta = str8 then
           dec(contador, 1);
       end;
     81:
       begin
         Tabla2.Free;
-        Label3.Caption := 'Bien Hecho, he guardado tu resultado en un txt';
+        Label3.Caption := str10;
         Tabla2 := TStringList.Create;
         Tabla2.Clear;
-        Tabla2.add('Resultado de  _' + Inttostr(contador) +
-          '_ Preguntas  Activo->' + Inttostr(estilo1) + ' ' + 'Reflexivo->' +
-          Inttostr(estilo2) + ' ' + 'Teorico->' + Inttostr(estilo3) + ' ' +
-          'Pragmático->' + Inttostr(estilo4) + '');
+        Tabla2.add(str11 + Inttostr(contador) + str12 + Inttostr(estilo1) + ' '
+          + str13 + Inttostr(estilo2) + ' ' + str14 + Inttostr(estilo3) + ' ' +
+          str15 + Inttostr(estilo4) + '');
         // Tabla.SaveToFile( ExtractFilePath( Application.ExeName ) + 'Resultado.txt' );
-        Tabla2.SaveToFile('Resultado.txt');
+        Tabla2.SaveToFile('Resultado.txt', TEncoding.utf8);
         Label2.Caption := Tabla2.Strings[0];
         Tabla2.Free;
         Button3.Visible := False;
@@ -234,44 +264,44 @@ begin
     3, 5, 7, 9, 13, 20, 26, 27, 35, 37, 41, 43, 46, 48, 51, 61, 67, 74, 75,
       77: { definiremos estilo 1 }
       begin
-        If respuesta = 'a' then
+        If respuesta = str7 then // a
           inc(estilo1, 1); // pregunta x apunta al estilo1
-        If respuesta = 'b' then
+        If respuesta = str8 then // b
           inc(indeciso, 1);
-        If respuesta = 'c' then
+        If respuesta = str9 then // c
           inc(indeciso, 1);
         respuesta := '';
       end;
     10, 16, 18, 19, 28, 31, 32, 34, 36, 39, 42, 44, 49, 55, 58, 63, 65, 69, 70,
       79: { definiremos estilo 2 }
       begin
-        If respuesta = 'a' then
+        If respuesta = str7 then // a
           inc(estilo2, 1); // pregunta x apunta al estilo2
-        If respuesta = 'b' then
+        If respuesta = str8 then // b
           inc(indeciso, 1);
-        If respuesta = 'c' then
+        If respuesta = str9 then // c
           inc(indeciso, 1);
         respuesta := '';
       end;
     2, 4, 6, 11, 15, 17, 21, 23, 25, 29, 33, 45, 50, 54, 60, 64, 66, 71, 78,
       80: { definiremos estilo 3 }
       begin
-        If respuesta = 'a' then
+        If respuesta = str7 then // a
           inc(estilo3, 1); // pregunta x apunta al estilo3
-        If respuesta = 'b' then
+        If respuesta = str8 then // b
           inc(indeciso, 1);
-        If respuesta = 'c' then
+        If respuesta = str9 then // c
           inc(indeciso, 1);
         respuesta := '';
       end;
     1, 8, 12, 14, 22, 24, 30, 38, 40, 47, 52, 53, 56, 57, 59, 62, 68, 72, 73,
       76: { definiremos estilo 4 }
       begin
-        If respuesta = 'a' then
+        If respuesta = str7 then // a
           inc(estilo4, 1); // pregunta x apunta al estilo4
-        If respuesta = 'b' then
+        If respuesta = str8 then // b
           inc(indeciso, 1);
-        If respuesta = 'c' then
+        If respuesta = str9 then // c
           inc(indeciso, 1);
         respuesta := '';
       end;
