@@ -1,0 +1,4 @@
+v 1.0
+Gui con 2 botones,
+ encriptar las preguntas(preguntas.txt)
+ y desencriptar desde Resultado.txt (encriptado de preguntas.txt) a  Resultado1pase.txt (desencriptado de Resultado.txt )
