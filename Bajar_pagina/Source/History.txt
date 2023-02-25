@@ -1,0 +1,48 @@
+<<<<<<< HEAD
+=========================*{ History }*===============================
+Programa : Bajar Página by Apuromafo 
+Web : https://github.com/apuromafo/Bajar-pagina-by-Apuromafo 
+=================================================================
+Leyenda:
+[+] Agregado / Nuevo
+[-] Removido
+[*] Cambiado
+[%] Arreglado(bugs)
+[^] Actualizacionesy / o Información 
+=================================================================
+Version1.1 2017-05-24
+=================================================================
+[*] opcion del Navegador customizado, se realiza de forma generica
+ [^] Programa que permite bajar pagina formato UTF-8
+
+=================================================================
+Version1.0 2017-05-01
+=================================================================
+[+] get ip
+[+] web para descargar
+[^] Programa que permite bajar pagina formato UTF-8 con navegador customizado
+=======
+======================*{ History }*===============================
+Programa : Bajar PÃ¡gina by Apuromafo 
+Web : https://github.com/apuromafo/Bajar-pagina-by-Apuromafo 
+=================================================================
+Leyenda:
+[+] Agregado / Nuevo
+[-] Removido
+[*] Cambiado
+[%] Arreglado(bugs)
+[^] Actualizacionesy / o InformaciÃ³n 
+
+=================================================================
+Version1.1 2017-05-24
+=================================================================
+[*] opcion del Navegador customizado, se realiza de forma generica
+[^] Programa que permite bajar pagina formato UTF-8
+
+=================================================================
+Version1.0 2017-05-01
+=================================================================
+[+] get ip
+[+] web para descargar
+[^] Programa que permite bajar pagina formato UTF-8 con navegador customizado
+>>>>>>> 239eeb679ef3e611d574af0ff3587035d184f376
