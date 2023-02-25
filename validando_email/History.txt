@@ -1,0 +1,16 @@
+=============*{ History }*=============
+Programa : Validando Email 
+Web : https://github.com/apuromafo/ValidandoEmail 
+===================================
+Leyenda:
+[+] Agregado / Nuevo
+[-] Removido
+[*] Cambiado
+[%] Arreglado(bugs)
+[^] Actualizacionesy / o Información 
+
+===================================
+Version 1.0 2017-05-01
+===================================
+[+] 3 Algoritmos de Expresiones Regulares
+[^] Programa que comprueba si un email es válido usando 3 algoritmos diferentes (expresiones regulares)
