@@ -1,0 +1,34 @@
+============*{ History }*============
+Programa : Algoritmo de Suma by Apuromafo  
+Web : https://github.com/apuromafo/Delphi-Sum-algo  
+=================================
+Leyenda:
+[+] Agregado / Nuevo
+[-] Removido
+[*] Cambiado
+[%] Arreglado(bugs)
+[^] Actualizaciones y / o Información 
+
+=================================
+Version 1.3 2019-06-05
+=================================
+[%] código
+ 
+=================================
+Version 1.2 2019-06-04
+=================================
+[+] Arreglada strings como resourcestrings
+ 
+
+=================================
+Version 1.1 2017-05-24
+=================================
+[+] STOP
+[+] Opciones de Algoritmo
+[+] boton Clear y Exit
+[^] Programa que permite calcular un algoritmo que funciona sumando el digito de las cifras de un número ya sea divisible igual a cierto valor o bien igual a cierto valor
+
+=================================
+Version 1.0 2017-01-26
+=================================
+[^] Creado para RTN challenge
