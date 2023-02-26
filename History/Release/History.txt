@@ -1,0 +1,41 @@
+﻿============*{ History }*============
+Programa : History by Apuromafo 
+Web : https://github.com/apuromafo/History-by-Apuromafo 
+=================================
+Leyenda:
+[+] Agregado / Nuevo
+[-] Removido
+[*] Cambiado
+[%] Arreglado(bugs)
+[^] Actualizacionesy / o Información 
+=================================
+Version 1.3 2019-06-05
+=================================
+[*] Imagen
+[+] Menú
+[-] jvlc componentes  
+[^]  Programa que permite generar un Historial/changelog de Algun Programa mostrando de Mayor version a Menor version solo seguir los pasos 1, (2 y 3 como sea necesario) y luego 4, luego 5 y eso es todo :)
+ 
+=================================
+Version 1.2 2017-06-13
+=================================
+[*] Posición Botones
+[+] Elección de Versión para cada Descripción
+[+] Mostrar version de Mayor a Menor(downto)
+[^]  Programa que permite generar un Historial/changelog de Algun Programa mostrando de Mayor version a Menor version solo seguir los pasos 1, (2 y 3 como sea necesario) y luego 4, luego 5 y eso es todo :)
+ 
+=================================
+Version 1.1 2017-06-12
+=================================
+[+] TEncoding.UTF8
+[^] Programa que permite generar un Historial/changelog de Algun Programa
+ 
+=================================
+Version 1.0 2017-06-12
+=================================
+[+] Generador de Encabezado
+[+] Generador de Version
+[+] Generador de Descripción
+[*] Posicion de Botones
+[%] Opciones de Guardado
+ 
